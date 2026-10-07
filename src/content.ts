@@ -9,7 +9,7 @@ type Site = {
 };
 
 export const site: Site = {
-  name: "Your name",
+  name: "Valdemar Ulrikkeholm",
   event: "Launch night",
   date: "Thursday 22 October",
   year: "2026",
