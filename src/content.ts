@@ -1,7 +1,6 @@
 type Site = {
   name: string;
   degree: string;
-  degreeStatus: string;
   introduction: string;
   focusAreas: string[];
   skills: { category: string; items: string[] }[];

@@ -40,7 +40,6 @@ app.innerHTML = `
         <div class="card-divider"></div>
         <p class="card-label">EDUCATION</p>
         <p class="card-degree">${_.escape(site.degree)}</p>
-        <p class="card-status">${_.escape(site.degreeStatus)}</p>
       </aside>
     </section>
     <section class="experience-section" id="experience" aria-labelledby="experience-heading">
@@ -97,7 +96,6 @@ app.innerHTML = `
       <div class="education-content">
         <h2 id="education-heading">${_.escape(site.degree)}</h2>
         <p>Aalborg University in Copenhagen · 2023–2026</p>
-        <p class="degree-status">${_.escape(site.degreeStatus)} to complete the bachelor’s degree.</p>
         <h3 class="music-education-heading">Earlier studies in music</h3>
         <ul class="education-list">
           ${site.education

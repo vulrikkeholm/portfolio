@@ -1,8 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("the page presents the current degree status and portrait", async ({
-  page,
-}) => {
+test("the page presents the degree and portrait", async ({ page }) => {
   await page.goto("/");
   await expect(
     page.getByRole("heading", {
@@ -14,7 +12,7 @@ test("the page presents the current degree status and portrait", async ({
   await expect(page.locator(".card-degree")).toHaveText(
     "Cyber- og computerteknologi",
   );
-  await expect(page.locator(".card-status")).toHaveText("One course remaining");
+  await expect(page.locator("body")).not.toContainText("one course remaining");
   await expect(
     page.getByRole("img", { name: "Portrait of Valdemar Ulrikkeholm" }),
   ).toBeVisible();
