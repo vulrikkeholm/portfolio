@@ -23,6 +23,9 @@ test("the page links to experience, skills, and education", async ({
 }) => {
   await page.goto("/");
   await expect(
+    page.getByRole("link", { name: "Projects", exact: true }),
+  ).toHaveAttribute("href", "#projects");
+  await expect(
     page.getByRole("link", { name: "Experience", exact: true }),
   ).toHaveAttribute("href", "#experience");
   await expect(
@@ -33,7 +36,40 @@ test("the page links to experience, skills, and education", async ({
   ).toHaveAttribute("href", "#education");
   await expect(page.locator(".experience-card")).toHaveCount(3);
   await expect(page.locator(".skill-group")).toHaveCount(4);
+  await expect(page.locator(".project-card h3")).toHaveText(
+    "Secure Messaging System",
+  );
+  await expect(
+    page.getByRole("link", { name: "Explore project" }),
+  ).toHaveAttribute("href", "/projects/bachelor");
   await expect(
     page.getByRole("link", { name: "Watch a performance on YouTube" }),
   ).toHaveAttribute("href", "https://youtu.be/9fh-dtQgBR8?si=7jWuM7_RpLdlxzDz");
+});
+
+test("the bachelor project has its own details page", async ({ page }) => {
+  await page.goto("/projects/bachelor");
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Secure Messaging System" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      /Argon2id password hashing and TOTP multi-factor authentication/,
+    ),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "View source on GitHub" }),
+  ).toHaveAttribute("href", "https://github.com/vulrikkeholm/bachelor");
+  await expect(
+    page.getByText("Double Ratchet for end-to-end encryption in transit"),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/Semgrep reported zero findings in the documented scan/),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/supports one-to-one conversations/),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Back to projects" }),
+  ).toHaveAttribute("href", "/#projects");
 });

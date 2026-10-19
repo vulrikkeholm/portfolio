@@ -3,6 +3,17 @@ type Site = {
   degree: string;
   introduction: string;
   focusAreas: string[];
+  projects: {
+    slug: string;
+    title: string;
+    type: string;
+    description: string;
+    repository: string;
+    technologies: string[];
+    highlights: string[];
+    team: string;
+    scopeNote: string;
+  }[];
   skills: { category: string; items: string[] }[];
   experience: {
     role: string;
@@ -23,6 +34,33 @@ export const site: Site = {
     "Cybersecurity",
     "Software and systems",
     "Privacy and digital trust",
+  ],
+  projects: [
+    {
+      slug: "bachelor",
+      title: "Secure Messaging System",
+      type: "Team bachelor project · Aalborg University",
+      description:
+        "A browser-based messaging application developed with privacy at its core. The project explores how modern cryptographic protocols and careful system design can protect messages and user data.",
+      repository: "https://github.com/vulrikkeholm/bachelor",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "React",
+        "Socket.IO",
+        "Double Ratchet",
+        "AES-GCM",
+      ],
+      highlights: [
+        "Double Ratchet for end-to-end encryption in transit",
+        "Argon2id password hashing and TOTP multi-factor authentication",
+        "AES-GCM encryption for locally stored messages",
+        "Unit and acceptance tests; Semgrep reported zero findings in the documented scan",
+      ],
+      team: "Developed with Vera Kirk Jeppesen and Sebastian Wendt Leerbæk.",
+      scopeNote:
+        "The implemented application supports one-to-one conversations. The report identifies group chats and dynamic security testing as possible future work.",
+    },
   ],
   skills: [
     {
