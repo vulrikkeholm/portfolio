@@ -13,6 +13,14 @@ test("the page presents the degree and portrait", async ({ page }) => {
     "Cyber- og computerteknologi",
   );
   await expect(page.locator("body")).not.toContainText("one course remaining");
+  await expect(page.locator(".education-mark")).toHaveCount(0);
+  await expect(
+    page.getByText("Bachelor of Music, classical flute"),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Det Jyske Musikkonservatorium, Aarhus"),
+  ).toBeVisible();
+  await expect(page.getByText("Royal Academy of Music, London")).toBeVisible();
   await expect(
     page.getByRole("img", { name: "Portrait of Valdemar Ulrikkeholm" }),
   ).toBeVisible();

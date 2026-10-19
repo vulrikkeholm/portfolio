@@ -117,5 +117,15 @@ export const site: Site = {
       institution: "The Royal Academy of Music, Aarhus",
       period: "2014–2017",
     },
+    {
+      qualification: "Postgraduate year",
+      institution: "Royal Academy of Music, London",
+      period: "2014–2015",
+    },
+    {
+      qualification: "Bachelor of Music, classical flute",
+      institution: "Det Jyske Musikkonservatorium, Aarhus",
+      period: "2011–2014",
+    },
   ],
 };

@@ -612,16 +612,6 @@ h1 span {
   color: #32170f;
 }
 
-.education-mark {
-  position: absolute;
-  right: 24px;
-  bottom: -44px;
-  color: #742c17;
-  font-size: 150px;
-  font-weight: 800;
-  letter-spacing: -12px;
-}
-
 footer {
   display: flex;
   justify-content: space-between;

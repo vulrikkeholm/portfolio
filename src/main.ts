@@ -195,7 +195,6 @@ if (isProjectPage) {
             .join("")}
         </ul>
       </div>
-      <span class="education-mark" aria-hidden="true">BSc</span>
     </section>
   </main>
   <footer>
