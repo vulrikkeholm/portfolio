@@ -5,7 +5,7 @@ test("the page presents the degree and portrait", async ({ page }) => {
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: "Different disciplines. One curious mind.",
+      name: "Junior developer focused on secure software.",
     }),
   ).toBeVisible();
   await expect(page.locator(".card-name")).toHaveText("Valdemar Ulrikkeholm");
@@ -15,12 +15,11 @@ test("the page presents the degree and portrait", async ({ page }) => {
   await expect(page.locator("body")).not.toContainText("one course remaining");
   await expect(page.locator(".education-mark")).toHaveCount(0);
   await expect(
-    page.getByText("Bachelor of Music, classical flute"),
+    page.getByRole("heading", { name: "Alongside IT" }),
   ).toBeVisible();
-  await expect(
-    page.getByText("Det Jyske Musikkonservatorium, Aarhus"),
-  ).toBeVisible();
-  await expect(page.getByText("Royal Academy of Music, London")).toBeVisible();
+  await expect(page.locator(".additional-education summary")).toHaveText(
+    "Earlier music education",
+  );
   await expect(
     page.getByRole("img", { name: "Portrait of Valdemar Ulrikkeholm" }),
   ).toBeVisible();
@@ -42,7 +41,8 @@ test("the page links to experience, skills, and education", async ({
   await expect(
     page.getByRole("link", { name: "Education", exact: true }),
   ).toHaveAttribute("href", "#education");
-  await expect(page.locator(".experience-card")).toHaveCount(3);
+  await expect(page.locator(".experience-card")).toHaveCount(1);
+  await expect(page.locator(".other-experience li")).toHaveCount(2);
   await expect(page.locator(".skill-group")).toHaveCount(4);
   await expect(page.locator(".project-card h3")).toHaveText(
     "Secure Messaging System",
@@ -51,7 +51,7 @@ test("the page links to experience, skills, and education", async ({
     page.getByRole("link", { name: "Explore project" }),
   ).toHaveAttribute("href", "/projects/bachelor");
   await expect(
-    page.getByRole("link", { name: "Watch a performance on YouTube" }),
+    page.getByRole("link", { name: "Watch a performance" }),
   ).toHaveAttribute("href", "https://youtu.be/9fh-dtQgBR8?si=7jWuM7_RpLdlxzDz");
 });
 

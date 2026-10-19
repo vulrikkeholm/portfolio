@@ -22,6 +22,13 @@ type Site = {
     description: string;
     videoUrl?: string;
   }[];
+  otherExperience: {
+    role: string;
+    organization: string;
+    period: string;
+    description: string;
+    videoUrl?: string;
+  }[];
   education: { qualification: string; institution: string; period: string }[];
 };
 
@@ -29,7 +36,7 @@ export const site: Site = {
   name: "Valdemar Ulrikkeholm",
   degree: "Cyber- og computerteknologi",
   introduction:
-    "I’m completing my degree at Aalborg University in Copenhagen. Alongside my technology studies, I bring a long background in music—as a performer, teacher, and mentor.",
+    "My studies have given me practical experience with software development, secure messaging, and web technologies.",
   focusAreas: [
     "Cybersecurity",
     "Software and systems",
@@ -85,6 +92,8 @@ export const site: Site = {
       description:
         "Supporting fellow students with guidance and helping them find their way through their studies.",
     },
+  ],
+  otherExperience: [
     {
       role: "Music teacher and instructor",
       organization: "Tivoli Guard",

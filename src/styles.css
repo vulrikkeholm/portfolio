@@ -299,6 +299,55 @@ h1 span {
   border-top: 1px solid #45433f;
 }
 
+.other-experience {
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid #45433f;
+  border-radius: 6px;
+}
+
+.other-experience h3 {
+  margin-bottom: 6px;
+  color: var(--lemon);
+  font-size: 15px;
+}
+
+.other-experience > p,
+.other-experience li {
+  color: #c7c0b8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.other-experience > p {
+  margin-bottom: 12px;
+}
+
+.other-experience ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.other-experience li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+
+.other-experience strong {
+  color: #fffaf4;
+}
+
+.other-experience a {
+  color: var(--lemon);
+  font-weight: 650;
+  text-underline-offset: 3px;
+}
+
 .experience-topline {
   display: flex;
   justify-content: space-between;
@@ -581,15 +630,23 @@ h1 span {
   font-weight: 700;
 }
 
-.music-education-heading {
-  margin: 28px 0 10px;
+.additional-education {
+  margin-top: 28px;
+  border-top: 1px solid rgb(25 25 25 / 24%);
+  padding-top: 16px;
+}
+
+.additional-education summary {
+  width: fit-content;
+  cursor: pointer;
   font-size: 14px;
+  font-weight: 700;
 }
 
 .education-list {
   display: grid;
   gap: 12px;
-  margin: 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }

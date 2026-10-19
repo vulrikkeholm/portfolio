@@ -62,7 +62,13 @@ if (isProjectPage) {
     </footer>
   `;
 } else {
-  document.title = `${site.name} | Cybersecurity & Computer Technology`;
+  document.title = `${site.name} | Software Development & Cybersecurity`;
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute(
+      "content",
+      `${site.name} is seeking software development roles, with a focus on secure and reliable software.`,
+    );
 
   app.innerHTML = `
   <header class="site-header">
@@ -78,14 +84,14 @@ if (isProjectPage) {
   <main id="top">
     <section class="hero" id="about" aria-labelledby="intro-heading">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> Technology, music &amp; mentorship</p>
-        <h1 id="intro-heading">Different disciplines. <span>One curious mind.</span></h1>
+        <p class="eyebrow"><span class="status-dot"></span> Software development · Cybersecurity</p>
+        <h1 id="intro-heading">Junior developer focused on <span>secure software.</span></h1>
         <p class="introduction">
-          I’m <strong>${_.escape(site.name)}</strong>, currently completing a
-          <strong>bachelor’s degree in ${_.escape(site.degree)}</strong>.
+          I’m <strong>${_.escape(site.name)}</strong>, seeking software development opportunities while completing my degree in
+          <strong>${_.escape(site.degree)}</strong>.
           ${_.escape(site.introduction)}
         </p>
-        <a class="text-link" href="#experience">Get to know my experience <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="#projects">Explore my project <span aria-hidden="true">↓</span></a>
       </div>
       <aside class="profile-card" aria-label="Profile and education">
         <div class="card-topline"><span>PROFILE</span><span>01 / 01</span></div>
@@ -97,7 +103,7 @@ if (isProjectPage) {
           height="1151"
         />
         <p class="card-name">${_.escape(site.name)}</p>
-        <p class="card-caption">Technology · Music · Mentorship</p>
+        <p class="card-caption">Software development · Cybersecurity</p>
         <div class="card-divider"></div>
         <p class="card-label">EDUCATION</p>
         <p class="card-degree">${_.escape(site.degree)}</p>
@@ -105,9 +111,9 @@ if (isProjectPage) {
     </section>
     <section class="experience-section" id="experience" aria-labelledby="experience-heading">
       <div class="section-heading">
-        <p class="eyebrow">EXPERIENCE</p>
-        <h2 id="experience-heading">A career shaped by people, performance, and technology.</h2>
-        <p class="section-intro">From helping students find their path to performing on stage, I value teamwork, curiosity, and clear communication.</p>
+        <p class="eyebrow">RELEVANT EXPERIENCE</p>
+        <h2 id="experience-heading">Technology, teamwork, and clear communication.</h2>
+        <p class="section-intro">Experience supporting students in a technical university environment.</p>
       </div>
       <ol class="experience-list">
         ${site.experience
@@ -130,6 +136,26 @@ if (isProjectPage) {
           )
           .join("")}
       </ol>
+      <aside class="other-experience" aria-labelledby="other-experience-heading">
+        <h3 id="other-experience-heading">Alongside IT</h3>
+        <p>Music teaching and professional flute performance.</p>
+        <ul>
+          ${site.otherExperience
+            .map(
+              (role) => `
+                <li>
+                  <span><strong>${_.escape(role.role)}</strong> · ${_.escape(role.organization)} (${_.escape(role.period)})</span>
+                  ${
+                    role.videoUrl
+                      ? `<a href="${_.escape(role.videoUrl)}" target="_blank" rel="noopener noreferrer">Watch a performance <span aria-hidden="true">↗</span></a>`
+                      : ""
+                  }
+                </li>
+              `,
+            )
+            .join("")}
+        </ul>
+      </aside>
     </section>
     <section class="projects-section" id="projects" aria-labelledby="projects-heading">
       <div class="section-heading">
@@ -178,22 +204,24 @@ if (isProjectPage) {
       <div class="education-content">
         <h2 id="education-heading">${_.escape(site.degree)}</h2>
         <p>Aalborg University in Copenhagen · 2023–2026</p>
-        <h3 class="music-education-heading">Earlier studies in music</h3>
-        <ul class="education-list">
-          ${site.education
-            .map(
-              (item) => `
-                <li>
-                  <span class="education-period">${_.escape(item.period)}</span>
-                  <span>
-                    <strong>${_.escape(item.qualification)}</strong>
-                    <span class="education-institution">${_.escape(item.institution)}</span>
-                  </span>
-                </li>
-              `,
-            )
-            .join("")}
-        </ul>
+        <details class="additional-education">
+          <summary>Earlier music education</summary>
+          <ul class="education-list">
+            ${site.education
+              .map(
+                (item) => `
+                  <li>
+                    <span class="education-period">${_.escape(item.period)}</span>
+                    <span>
+                      <strong>${_.escape(item.qualification)}</strong>
+                      <span class="education-institution">${_.escape(item.institution)}</span>
+                    </span>
+                  </li>
+                `,
+              )
+              .join("")}
+          </ul>
+        </details>
       </div>
     </section>
   </main>
