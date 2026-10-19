@@ -1,11 +1,9 @@
-# Spec: Launch night
+# Spec: Valdemar Ulrikkeholm portfolio
 
-The site is a one-page ticket shop for an event.
+The site is a one-page personal portfolio for Valdemar Ulrikkeholm.
 
-1. The page shows who hosts the event, the name of the event and its date.
-2. A visitor picks a number of tickets (0 to 50) and sees the total price in DKK straight away.
-3. Students pay half price. Tick "I'm a student" and the total updates.
-4. A group of 10 or more tickets gets 20% off the total.
-5. The total is rounded to whole kroner. No tickets costs nothing.
-6. The page works with a keyboard and a screen reader.
-7. The page sends no personal data anywhere.
+1. The page introduces Valdemar as a graduate with a bachelor's degree in Cyber- og computerteknologi.
+2. The page presents cybersecurity, software and systems, and privacy as areas of interest.
+3. Visitors can navigate to the about, interests, and education sections.
+4. The page works with a keyboard and a screen reader.
+5. The page sends no personal data anywhere.

@@ -1,17 +1,18 @@
-// Session 1: change this file, commit to main, and watch Vercel deploy it.
-
 type Site = {
   name: string;
-  event: string;
-  date: string;
-  year: number;
-  ticketPrice: number;
+  degree: string;
+  introduction: string;
+  focusAreas: string[];
 };
 
 export const site: Site = {
   name: "Valdemar Ulrikkeholm",
-  event: "Launch night",
-  date: "Thursday 22 October",
-  year: "2026",
-  ticketPrice: 120,
+  degree: "Bachelor's degree in Cyber- og computerteknologi",
+  introduction:
+    "I’m interested in how secure systems are built—from the code we write to the infrastructure it runs on.",
+  focusAreas: [
+    "Cybersecurity",
+    "Software and systems",
+    "Privacy and digital trust",
+  ],
 };
