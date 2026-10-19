@@ -203,7 +203,14 @@ h1 span {
   line-height: 1.5;
 }
 
-.focus-section {
+.card-status {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.experience-section,
+.skills-section {
   padding-block: 64px 100px;
   border-top: 1px solid var(--line);
 }
@@ -237,42 +244,99 @@ h1 span {
   line-height: 1.7;
 }
 
-.focus-list {
+.experience-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 0;
   margin: 44px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.focus-card {
-  position: relative;
-  min-height: 148px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  background: rgb(255 255 255 / 48%);
+.experience-card {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
 }
 
-.focus-number {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
+.experience-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: baseline;
 }
 
-.focus-card h3 {
-  margin: 38px 28px 0 0;
-  font-size: 18px;
+.experience-topline h3 {
+  margin: 0;
+  font-size: 20px;
   font-weight: 650;
-  letter-spacing: -0.4px;
 }
 
-.focus-arrow {
-  position: absolute;
-  right: 22px;
-  bottom: 20px;
-  color: #718d24;
+.experience-topline span,
+.experience-organization {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.experience-organization {
+  margin: 7px 0 8px;
+  font-weight: 650;
+}
+
+.experience-description {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.performance-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  color: #536a21;
+  font-size: 13px;
+  font-weight: 650;
+  text-underline-offset: 4px;
+}
+
+.performance-link:hover {
+  color: #3e5118;
+}
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 48px;
+  margin-top: 44px;
+}
+
+.skill-group {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.skill-group h3 {
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.skill-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-group li {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgb(255 255 255 / 55%);
+  color: #3f4b43;
+  font-size: 12px;
 }
 
 .education-section {
@@ -309,6 +373,41 @@ h1 span {
   color: #c0c9c1;
   font-size: 14px;
   line-height: 1.7;
+}
+
+.education-content .degree-status {
+  margin-top: -8px;
+  color: var(--green);
+}
+
+.music-education-heading {
+  margin: 28px 0 10px;
+  font-size: 14px;
+}
+
+.education-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.education-list li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.education-period {
+  color: var(--green);
+}
+
+.education-institution {
+  display: block;
+  color: #c0c9c1;
 }
 
 .education-mark {
@@ -356,18 +455,15 @@ footer {
     margin-bottom: 0;
   }
 
-  .focus-list {
+  .experience-section,
+  .skills-section {
+    padding-block: 48px 72px;
+  }
+
+  .skill-groups {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 22px;
     margin-top: 32px;
-  }
-
-  .focus-card {
-    min-height: 112px;
-  }
-
-  .focus-card h3 {
-    margin-top: 22px;
   }
 
   .education-section {
@@ -409,8 +505,10 @@ footer {
     font-size: 16px;
   }
 
-  .focus-section {
-    padding-block: 48px 72px;
+  .experience-topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
   }
 
   footer {

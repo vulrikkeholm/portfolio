@@ -9,20 +9,22 @@ app.innerHTML = `
     <a class="wordmark" href="#top" aria-label="${_.escape(site.name)} — home">VU<span>.</span></a>
     <nav aria-label="Main navigation">
       <a href="#about">About</a>
-      <a href="#focus">Interests</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
       <a href="#education">Education</a>
     </nav>
   </header>
   <main id="top">
     <section class="hero" id="about" aria-labelledby="intro-heading">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> Cybersecurity &amp; computer technology</p>
-        <h1 id="intro-heading">Technology should be <span>secure by design.</span></h1>
+        <p class="eyebrow"><span class="status-dot"></span> Technology, music &amp; mentorship</p>
+        <h1 id="intro-heading">Different disciplines. <span>One curious mind.</span></h1>
         <p class="introduction">
-          I’m <strong>${_.escape(site.name)}</strong>, a graduate with a
-          <strong>${_.escape(site.degree)}</strong>. ${_.escape(site.introduction)}
+          I’m <strong>${_.escape(site.name)}</strong>, currently completing a
+          <strong>bachelor’s degree in ${_.escape(site.degree)}</strong>.
+          ${_.escape(site.introduction)}
         </p>
-        <a class="text-link" href="#focus">A little about what interests me <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="#experience">Get to know my experience <span aria-hidden="true">↓</span></a>
       </div>
       <aside class="profile-card" aria-label="Profile and education">
         <div class="card-topline"><span>PROFILE</span><span>01 / 01</span></div>
@@ -34,43 +36,90 @@ app.innerHTML = `
           height="1151"
         />
         <p class="card-name">${_.escape(site.name)}</p>
-        <p class="card-caption">Cybersecurity · Computer technology</p>
+        <p class="card-caption">Technology · Music · Mentorship</p>
         <div class="card-divider"></div>
         <p class="card-label">EDUCATION</p>
         <p class="card-degree">${_.escape(site.degree)}</p>
+        <p class="card-status">${_.escape(site.degreeStatus)}</p>
       </aside>
     </section>
-    <section class="focus-section" id="focus" aria-labelledby="focus-heading">
+    <section class="experience-section" id="experience" aria-labelledby="experience-heading">
       <div class="section-heading">
-        <p class="eyebrow">AREAS OF INTEREST</p>
-        <h2 id="focus-heading">Curious about the systems behind the screen.</h2>
-        <p class="section-intro">A few of the areas I’m drawn to as I keep learning and building.</p>
+        <p class="eyebrow">EXPERIENCE</p>
+        <h2 id="experience-heading">A career shaped by people, performance, and technology.</h2>
+        <p class="section-intro">From helping students find their path to performing on stage, I value teamwork, curiosity, and clear communication.</p>
       </div>
-      <ul class="focus-list">
-        ${site.focusAreas
+      <ol class="experience-list">
+        ${site.experience
           .map(
-            (area, index) => `
-              <li class="focus-card">
-                <span class="focus-number">0${index + 1}</span>
-                <h3>${_.escape(area)}</h3>
-                <span class="focus-arrow" aria-hidden="true">↗</span>
+            (role) => `
+              <li class="experience-card">
+                <div class="experience-topline">
+                  <h3>${_.escape(role.role)}</h3>
+                  <span>${_.escape(role.period)}</span>
+                </div>
+                <p class="experience-organization">${_.escape(role.organization)}</p>
+                <p class="experience-description">${_.escape(role.description)}</p>
+                ${
+                  role.videoUrl
+                    ? `<a class="performance-link" href="${_.escape(role.videoUrl)}" target="_blank" rel="noopener noreferrer">Watch a performance on YouTube <span aria-hidden="true">↗</span></a>`
+                    : ""
+                }
               </li>
             `,
           )
           .join("")}
-      </ul>
+      </ol>
+    </section>
+    <section class="skills-section" id="skills" aria-labelledby="skills-heading">
+      <div class="section-heading">
+        <p class="eyebrow">TECHNICAL TOOLKIT</p>
+        <h2 id="skills-heading">Tools I’ve worked with.</h2>
+        <p class="section-intro">A growing toolkit across programming, web development, security, and collaboration.</p>
+      </div>
+      <div class="skill-groups">
+        ${site.skills
+          .map(
+            (group) => `
+              <section class="skill-group" aria-label="${_.escape(group.category)}">
+                <h3>${_.escape(group.category)}</h3>
+                <ul>
+                  ${group.items.map((skill) => `<li>${_.escape(skill)}</li>`).join("")}
+                </ul>
+              </section>
+            `,
+          )
+          .join("")}
+      </div>
     </section>
     <section class="education-section" id="education" aria-labelledby="education-heading">
       <p class="eyebrow">EDUCATION</p>
       <div class="education-content">
         <h2 id="education-heading">${_.escape(site.degree)}</h2>
-        <p>A foundation in cyber and computer technology, and a starting point for a career in a connected world.</p>
+        <p>Aalborg University in Copenhagen · 2023–2026</p>
+        <p class="degree-status">${_.escape(site.degreeStatus)} to complete the bachelor’s degree.</p>
+        <h3 class="music-education-heading">Earlier studies in music</h3>
+        <ul class="education-list">
+          ${site.education
+            .map(
+              (item) => `
+                <li>
+                  <span class="education-period">${_.escape(item.period)}</span>
+                  <span>
+                    <strong>${_.escape(item.qualification)}</strong>
+                    <span class="education-institution">${_.escape(item.institution)}</span>
+                  </span>
+                </li>
+              `,
+            )
+            .join("")}
+        </ul>
       </div>
       <span class="education-mark" aria-hidden="true">BSc</span>
     </section>
   </main>
   <footer>
     <span>${_.escape(site.name)}</span>
-    <span>Curiosity, security, and technology.</span>
+    <span>Curiosity across disciplines.</span>
   </footer>
 `;
