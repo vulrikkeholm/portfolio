@@ -18,9 +18,8 @@ type Site = {
 export const site: Site = {
   name: "Valdemar Ulrikkeholm",
   degree: "Cyber- og computerteknologi",
-  degreeStatus: "One course remaining",
   introduction:
-    "I’m completing my degree at Aalborg University in Copenhagen, with one course remaining. Alongside my technology studies, I bring a long background in music—as a performer, teacher, and mentor.",
+    "I’m completing my degree at Aalborg University in Copenhagen. Alongside my technology studies, I bring a long background in music—as a performer, teacher, and mentor.",
   focusAreas: [
     "Cybersecurity",
     "Software and systems",
